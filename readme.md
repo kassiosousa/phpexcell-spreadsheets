@@ -11,12 +11,12 @@ Esta aplicação é para estes casos, quando há muitas informações cadastrada
 - Google Spreadsheets
 
 ## Instalação
-Necessário:
+####Necessário:
 - (Recomendado) PHP Versão 5.6 ou superior 
 - (Funciona) PHP Versão 5.3.7 
 - Versão Excell 97-2003 para o arquivo de registros
 
-Como?
+####Como?
 - Basta descompactar a pasta completa do projeto onde deseja utilizar, sem necessidade de nenhuma instalação. Localmente ou em Servidor.
  
 ## Funcionalidades
@@ -28,7 +28,6 @@ Como?
 ## Configurações
 - Não há necessidade de nenhuma configuração de banco de dados, rotas ou projeto.
 - Para editar os dados, basta substituir o arquivo .xls chamado "Cadastros.xls" localizado em "assets/files". Tomando o cuidado da versão que deve ser convertido para ".xls 97-2003" devido a limitações da biblioteca PHPExcell não estar lendo arquivos mais recentes.
-- 
 
 ## Exemplos
 
@@ -37,38 +36,38 @@ O projeto consiste basicamente em 3 telas:
 - 2 Tela em que informa ao usuário quando não encontrar o CPF informado.
 - 3 Tela de dados quando é localizado o registro na tabela através do CPF.
 
-1º Caso, deseja-se alterar as colunas que o usuário irá visualizar.
+####1º Caso, deseja-se alterar as colunas que o usuário irá visualizar.
 
 O PHPExcell trata cada coluna da tabela como uma letra do alfabeto e de forma crescente, portanto, a primeira coluna da tabela será representada por "A".
 > <?= $usuarioCarregado['A'];?>
 Com isso em mente, pode-se alterar a ordem e quais dados deverão aparecer.
 
-2 Caso, deseja-se alterar o campo para localizar os dados.
+####2º Caso, deseja-se alterar o campo para localizar os dados.
 Cada formulário poderá ter uma estruturação diferente de colunas. Visto isso, você pode editar facilmente qual coluna deseja utilizar para consulta editando os arquivos:
-> controllers/Acessar.php
-> views/acessar/acessar.php 
-> views/acessar/dados_conta.php 
+``` controllers/Acessar.php```
+``` views/acessar/acessar.php ```
+``` views/acessar/dados_conta.php ```
 
 No primeiro, você deve mudar o nome da variável/coluna que deseja utilizar. Para o exemplo, vamos levar em conta que atualmente busca-se por CPF e agora deseja-se buscar por email. Então, deve-se mudar:
-> <?php echo form_input(array('name'=>'cpf_usuario','id'=>'cpf_usuario', 'class'=>'input-group-field', 'style'=>'border:solid 1px #ccc', 'placeholder'=>'CPF - Somente números', 'required'=>'required')); ?>
+``` <?php echo form_input(array('name'=>'cpf_usuario','id'=>'cpf_usuario', 'class'=>'input-group-field', 'style'=>'border:solid 1px #ccc', 'placeholder'=>'CPF - Somente números', 'required'=>'required')); ?> ```
 para
->  <?php echo form_input(array('name'=>'email_usuario','id'=>'email_usuario', 'class'=>'input-group-field', 'style'=>'border:solid 1px #ccc', 'placeholder'=>'Email cadastrado', 'required'=>'required')); ?>
+``` <?php echo form_input(array('name'=>'email_usuario','id'=>'email_usuario', 'class'=>'input-group-field', 'style'=>'border:solid 1px #ccc', 'placeholder'=>'Email cadastrado', 'required'=>'required')); ?>```
 
 Segundo, no controller, deve-se modificar o nome da variável que está chegando.
 Onde tem:
-> if ($_POST['cpf_usuario'])
+```if ($_POST['cpf_usuario'])```
 deve ficar:
-> if ($_POST['email_usuario'])
+```if ($_POST['email_usuario'])```
 
 Por último, deve-se alterar a visão dos dados do usuário para tratar corretamente o valor que está chegando. Levando em conta que o CPF está na coluna "C" e o email na coluna "K".
 Antes, com CPF, trata retirando pontos e hífen para comparar a coluna correta:
-> 		// Trata o CPF cadastrado para comparação
+```		// Trata o CPF cadastrado para comparação
 		$cpfFormatado = str_replace('.', '', $linha['C']);
 		$cpfFormatado = str_replace('-', '', $cpfFormatado);
-		if ($_POST['cpf_usuario']==$cpfFormatado) {$usuarioCarregado = $linha;}
+		if ($_POST['cpf_usuario']==$cpfFormatado) {$usuarioCarregado = $linha;}```
 Agora, trata o email, onde deve ser idêntico:
-> 		// Trata o email cadastrado para comparação
-		if ($_POST['email_usuario']==$linha['K']) {$usuarioCarregado = $linha;}
+``` 		// Trata o email cadastrado para comparação
+		if ($_POST['email_usuario']==$linha['K']) {$usuarioCarregado = $linha;}```
 
 Com isso, caso o usuário esteja registrado e o dado passado esteja igual na tabela, poderemos ter essa informação na variável "$usuarioCarregado" e utiliza-la.
 
