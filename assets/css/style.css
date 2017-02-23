@@ -1,0 +1,44 @@
+/*
+ * Desenvolvido por João Victor
+ * Email: contato@joaovictor.net.br
+ * URL: joaovictor.net.br
+ * Página: acessar.php
+ */
+
+html, body{
+    padding-top: initial;
+}
+body{  
+	background-attachment: fixed;  
+	/*background-image: url('../img/background-login.jpg');  */
+	background: #54162e;
+	background-position: center;  background-size: cover;  height: 100%;   }
+
+body:before{
+    content: none;  position: initial;  top: 0;  left: 0;  right: 0;  height: initial;  background: initial;  background-image: initial;
+}
+.container{  align-items: center;  display: flex;  height: 100%;  }
+
+#form_acessar fieldset > legend{  color: #4d4d4d;  font-size: 1.5rem;  font-weight: 700;  margin-bottom: 40px;  text-transform: uppercase;  }
+
+#form_acessar .input-group{  display:flex;  flex-direction: row-reverse;  }
+
+#form_acessar .input-group-label{  border: none;  padding: 0;  width: 50px;  height: 50px;  color: #acacac;  background-color: #ffffff;  transition:all .5s ease;  }
+
+#form_acessar .input-group-label .material-icons{  line-height: 50px;  }
+
+#form_acessar .input-group-field{  border:1px solid #ffffff; }
+
+#form_acessar .input-group-field:focus + .input-group-label, #form_acessar .input-group-field:hover + .input-group-label{  background-color: #1E87DB;  color: #ffffff;  }
+
+#form_acessar input{  height: 50px;  font-size: 1rem; }
+
+#form_acessar input[type=submit]{   width: 350px; }
+
+@media screen and (max-width: 370px){
+    #form_acessar input[type=submit]{   width: 100%; }
+}
+
+span > a{  color: #fff;  display: block;  font-size: .9rem;  margin: 5px 0;  -webkit-transition: all .5s;  -moz-transition: all .5s;  -ms-transition: all .5s;  -o-transition: all .5s;  transition: all .5s;  }
+
+span > a:hover, span > a:focus {  color: #1E87DB; -webkit-text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);  -moz-text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);  }

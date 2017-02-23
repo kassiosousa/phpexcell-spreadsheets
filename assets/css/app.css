@@ -1,0 +1,96 @@
+/*
+ * Desenvolvido por João Victor
+ * Email: contato@joaovictor.net.br
+ * URL: joaovictor.net.br
+ * Base do Sistema
+ */
+
+/*
+    Fonte Open Sans
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,800');
+
+html,body{  color: #333333;    font-family: 'Open Sans', sans-serif;    font-size: 100%;    height: 100%;    margin: 0 auto;  padding-top: 1rem;  }
+
+/*
+ * Headings
+ */
+
+h1{  font-family: 'Open Sans', sans-serif;  font-size: 2.250rem;  font-weight: 700;  margin-bottom: 40px;  }
+
+/*
+ * Formularios
+ */
+
+input[type=text], input[type=email], input[type=password]{  box-shadow: none;    border-left: 2px solid #3c3c3c;    color: #555555;    height: 50px; -webkit-transition: all linear .2s;  -moz-transition: all linear .2s;  -ms-transition: all linear .2s;  -o-transition: all linear .2s;  transition: all linear .2s;
+}
+
+input:focus, .input-group-field:focus{  box-shadow: none;  border-left: 5px solid #1e87db;    -webkit-transition: all linear .2s;  -moz-transition: all linear .2s;  -ms-transition: all linear .2s;  -o-transition: all linear .2s;  transition: all linear .2s;   }
+
+input[type=text]::-webkit-input-placeholder,input[type=email]::-webkit-input-placeholder,input[type=password]::-webkit-input-placeholder {  color: #acacac;  }
+input[type=text]::-moz-placeholder,input[type=email]::-moz-placeholder,input[type=password]::-moz-placeholder {  color: #acacac;  }
+input[type=text]:-ms-input-placeholder,input[type=email]:-ms-input-placeholder,input[type=password]:-ms-input-placeholder {  color: #acacac;  }
+input[type=text]:-moz-placeholder,input[type=email]:-moz-placeholder,input[type=password]:-moz-placeholder {    color: #acacac;    }
+
+input[type=checkbox] {
+    visibility: hidden;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type=checkbox]:before {
+    content: '';
+    display: inline-block;
+    margin-right: 10px;
+    width: 17px;
+    height: 17px;
+    visibility: visible;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 20px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    color: #052;
+}
+
+input[type=checkbox]:checked:before {
+    content: '';
+    background: #1E87DB;
+}
+
+/*
+ * Botões
+ */
+.button{  background-color: #03A9F4;  border-bottom: 7px solid #1e87db;  font-family: 'Open Sans', sans-serif;  font-weight: 300;  height: 50px;  -webkit-transition: all linear .3s;  -moz-transition: all linear .3s;  -ms-transition: all linear .3s;  -o-transition: all linear .3s;  transition: all linear .3s;  }
+
+.button:hover, .button:focus{  background-color: #1e87db;  border-bottom: 7px solid #006fb7;  }
+
+.button-cancelar{  background-color: #4c4c4c;  border-bottom: 7px solid #333333;  }
+
+.button-cancelar:hover, .button-cancelar:focus{  background-color: #333333;  border-bottom: 7px solid #222222;  }
+
+/*
+ * Estilização de erros
+ */
+
+div.form_erro{
+    font-weight: bold;
+    font-size: .75rem;
+    margin-bottom: .5rem;
+    color: #a5372d;
+}
+
+@media screen and (min-width: 641px){
+    div.form_erro{
+        margin-top: -25px;
+    }
+}
+
+div.form_erro + input{
+    border: #f0776c 1px solid;
+    background-color: rgba(240,119,108,0.05);
+}
